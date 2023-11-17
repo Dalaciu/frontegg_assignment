@@ -13,12 +13,14 @@ import {
 import { FaTimes, FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { Button } from "../../globalStyles";
+import { useLoginWithRedirect } from "@frontegg/react";
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
-
   const [homeClick, setHomeClick] = useState(false);
+
+  const loginWithRedirect = useLoginWithRedirect();
 
   const handleHomeClick = () => {
     setHomeClick(true);
@@ -62,12 +64,21 @@ function Navbar() {
               </NavItem>
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink to="/sign-up">
-                    <Button $primary>Login</Button>
+                  <NavBtnLink to="/dashboard">
+                    <Button $primary onClick={() => loginWithRedirect()}>
+                      Login / Sign-Up
+                    </Button>
                   </NavBtnLink>
                 ) : (
-                  <NavBtnLink to="/sign-up">
-                    <Button onClick={closeMobileMenu} $fontBig $primary>
+                  <NavBtnLink to="/dashboard">
+                    <Button
+                      onClick={() => {
+                        closeMobileMenu();
+                        loginWithRedirect();
+                      }}
+                      $fontBig
+                      $primary
+                    >
                       Login
                     </Button>
                   </NavBtnLink>

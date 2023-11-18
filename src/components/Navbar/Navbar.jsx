@@ -13,13 +13,14 @@ import {
 import { FaTimes, FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { Button } from "../../globalStyles";
-import { useLoginWithRedirect } from "@frontegg/react";
+import { useAuth, useLoginWithRedirect } from "@frontegg/react";
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [homeClick, setHomeClick] = useState(false);
 
+  const { isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
 
   const handleHomeClick = () => {
@@ -31,7 +32,6 @@ function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
-    // so if the screensize is <= 960px then set button state to false
     if (window.innerwidth <= 960) {
       setButton(false);
     } else {
@@ -65,22 +65,38 @@ function Navbar() {
               <NavItemBtn>
                 {button ? (
                   <NavBtnLink to="/">
-                    <Button $primary onClick={() => loginWithRedirect()}>
-                      Login / Sign-Up
-                    </Button>
+                    {isAuthenticated ? (
+                      <Button $primary>Settings</Button>
+                    ) : (
+                      <Button $primary onClick={() => loginWithRedirect()}>
+                        Login / Sign-Up
+                      </Button>
+                    )}
                   </NavBtnLink>
                 ) : (
                   <NavBtnLink to="/">
-                    <Button
-                      onClick={() => {
-                        closeMobileMenu();
-                        loginWithRedirect();
-                      }}
-                      $fontBig
-                      $primary
-                    >
-                      Login
-                    </Button>
+                    {isAuthenticated ? (
+                      <Button
+                        onClick={() => {
+                          closeMobileMenu();
+                        }}
+                        $fontBig
+                        $primary
+                      >
+                        Settings
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={() => {
+                          closeMobileMenu();
+                          loginWithRedirect();
+                        }}
+                        $fontBig
+                        $primary
+                      >
+                        Login
+                      </Button>
+                    )}
                   </NavBtnLink>
                 )}
               </NavItemBtn>

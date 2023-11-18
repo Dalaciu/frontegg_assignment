@@ -1,2 +1,4 @@
-- [ ] finish styling for the UserPannel elements
+- [ ] test magic link auth
+- [ ] invite admin user & configure permissions
 - [ ] refactor & remove unused imports
+- [x] finish styling for the UserPannel elements

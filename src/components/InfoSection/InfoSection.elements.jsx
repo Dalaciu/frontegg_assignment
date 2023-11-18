@@ -36,7 +36,7 @@ export const InfoColumn = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-  max-width: 540px;
+  max-width: 100%;
   padding-top: 0;
   padding-bottom: 60px;
 `;

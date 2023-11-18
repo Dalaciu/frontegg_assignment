@@ -5,14 +5,13 @@ import {
   UserContainer,
   UserImage,
   UserName,
-  LogoutButton,
-  LoginButton,
 } from "./UserPannel.elements";
 import {
   Heading,
   InfoColumn,
   InfoSec,
   TextWrapper,
+  Subtitle,
 } from "../InfoSection/InfoSection.elements";
 import { Container, Button } from "../../globalStyles";
 import { NavItemBtn } from "../Navbar/Navbar.elements";
@@ -50,7 +49,6 @@ const UserPanel = ({
                   <Heading>
                     <UserName>Welcome, {user?.name}</UserName>
                   </Heading>
-
                   <Button $primary onClick={() => logout()}>
                     Logout
                   </Button>

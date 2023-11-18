@@ -68,19 +68,15 @@ function Navbar() {
               </NavItem>
               {isAuthenticated ? (
                 <NavItemBtn>
-                  <NavBtnLink to="/">
-                    <Button $primary onClick={handleSettingsClick}>
-                      Settings
-                    </Button>
-                  </NavBtnLink>
+                  <Button $primary onClick={handleSettingsClick}>
+                    Settings
+                  </Button>
                 </NavItemBtn>
               ) : (
                 <NavItemBtn>
-                  <NavBtnLink to="/">
-                    <Button $primary onClick={() => loginWithRedirect()}>
-                      Login / Sign-Up
-                    </Button>
-                  </NavBtnLink>
+                  <Button $primary onClick={() => loginWithRedirect()}>
+                    Login / Sign-Up
+                  </Button>
                 </NavItemBtn>
               )}
             </NavMenu>

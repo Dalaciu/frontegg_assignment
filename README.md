@@ -1,0 +1,2 @@
+- [ ] finish styling for the UserPannel elements
+- [ ] refactor & remove unused imports

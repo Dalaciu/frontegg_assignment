@@ -64,13 +64,13 @@ function Navbar() {
               </NavItem>
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink to="/dashboard">
+                  <NavBtnLink to="/">
                     <Button $primary onClick={() => loginWithRedirect()}>
                       Login / Sign-Up
                     </Button>
                   </NavBtnLink>
                 ) : (
-                  <NavBtnLink to="/dashboard">
+                  <NavBtnLink to="/">
                     <Button
                       onClick={() => {
                         closeMobileMenu();

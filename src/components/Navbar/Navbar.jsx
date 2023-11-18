@@ -13,7 +13,7 @@ import {
 import { FaTimes, FaBars } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { Button } from "../../globalStyles";
-import { useAuth, useLoginWithRedirect } from "@frontegg/react";
+import { useAuth, useLoginWithRedirect, AdminPortal } from "@frontegg/react";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -22,6 +22,10 @@ function Navbar() {
 
   const { isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
+
+  const handleSettingsClick = () => {
+    AdminPortal.show();
+  };
 
   const handleHomeClick = () => {
     setHomeClick(true);
@@ -62,44 +66,23 @@ function Navbar() {
                   Home
                 </NavLinks>
               </NavItem>
-              <NavItemBtn>
-                {button ? (
+              {isAuthenticated ? (
+                <NavItemBtn>
                   <NavBtnLink to="/">
-                    {isAuthenticated ? (
-                      <Button $primary>Settings</Button>
-                    ) : (
-                      <Button $primary onClick={() => loginWithRedirect()}>
-                        Login / Sign-Up
-                      </Button>
-                    )}
+                    <Button $primary onClick={handleSettingsClick}>
+                      Settings
+                    </Button>
                   </NavBtnLink>
-                ) : (
+                </NavItemBtn>
+              ) : (
+                <NavItemBtn>
                   <NavBtnLink to="/">
-                    {isAuthenticated ? (
-                      <Button
-                        onClick={() => {
-                          closeMobileMenu();
-                        }}
-                        $fontBig
-                        $primary
-                      >
-                        Settings
-                      </Button>
-                    ) : (
-                      <Button
-                        onClick={() => {
-                          closeMobileMenu();
-                          loginWithRedirect();
-                        }}
-                        $fontBig
-                        $primary
-                      >
-                        Login
-                      </Button>
-                    )}
+                    <Button $primary onClick={() => loginWithRedirect()}>
+                      Login / Sign-Up
+                    </Button>
                   </NavBtnLink>
-                )}
-              </NavItemBtn>
+                </NavItemBtn>
+              )}
             </NavMenu>
           </NavbarContainer>
         </Nav>

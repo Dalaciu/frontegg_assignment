@@ -3,5 +3,5 @@ export const homeObjOne = {
   lightTextDesc: true,
   headline: "Welcome!",
   description:
-    "Click the login button to get started!",
+    "Click the Login / Sign-Up button to get started!",
 };

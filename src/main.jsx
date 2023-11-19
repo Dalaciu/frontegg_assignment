@@ -5,8 +5,8 @@ import "./index.css";
 import { FronteggProvider } from "@frontegg/react";
 
 const contextOptions = {
-  baseUrl: "https://app-obibx0spf0j9.frontegg.com",
-  clientId: "72f47cb7-2234-42bc-a9ea-ffa0e4066de1",
+  baseUrl: "https://login-demo.frontegg.com",
+  clientId: import.meta.env.VITE_APP_CLIENT_ID,
 };
 
 const authOptions = {

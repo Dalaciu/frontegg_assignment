@@ -1,4 +1,5 @@
-- [ ] test magic link auth
-- [ ] invite admin user & configure permissions
-- [ ] refactor & remove unused imports
+- [x] invite admin user & configure permissions
+- [x] refactor & remove unused imports
+- [x] test magic link auth (email login only)
+- [x] add .env file for client ID
 - [x] finish styling for the UserPannel elements
